@@ -1,0 +1,16 @@
+{
+  "name": "nodejs-express-template",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "url": "git@github.com:icapps/nodejs-express-template.git",
+    "type": "git"
+  },
+  "contributors": [
+    { "name": "Brent van Geertruy", "email": "brent.vangeertruy@icapps.com" },
+    { "name": "Olivier Van den Mooter", "email": "olivier.vandenmooter@icapps.com" },
+    { "name": "Samuel Overloop", "email": "samuel.overloop@icapps.com" },
+    { "name": "Robin Houdmeyers", "email": "robin.houdmeyers@icapps.com" }
+  ],
+  "license": "MIT"
+}
