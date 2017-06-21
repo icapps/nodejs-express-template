@@ -22,10 +22,8 @@
     "baseUrl": "./",
     "paths": {},
     "rootDirs": [],
-    "typeRoots": [
-
-    ],
-    "types": [],
+    "typeRoots": [ "node_modules/@types" ],
+    "declaration": true,
     "allowSyntheticDefaultImports": true,
 
     "sourceRoot": "./src",
