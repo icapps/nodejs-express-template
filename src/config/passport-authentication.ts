@@ -27,7 +27,7 @@ export function onLocalStrategy(email: string, password: string) {
 export function onJwtStrategy(payload) {
   return new Promise((resolve, reject) => {
     if (payload.user) {
-      return resolve({ isAuthenticated: true });
+      return resolve({ name: 'John Doe' });
     }
     return reject('Local strategy: not authorised');
   });

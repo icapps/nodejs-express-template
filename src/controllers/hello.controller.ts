@@ -1,6 +1,6 @@
 import { BaseController } from 'tree-house';
 import { Response, Request } from 'express';
-import { HelloService } from './../services/hello.service';
+import HelloService from './../services/hello.service';
 
 export class HelloController extends BaseController {
   helloService: any;
@@ -12,6 +12,6 @@ export class HelloController extends BaseController {
   }
 
   hello = (req: Request, res: Response) => {
-    this.execute(res, this.helloService.talk(req));
+    this.execute(res, this.helloService.talk(req.session.user.name));
   }
 }
