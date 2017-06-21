@@ -33,7 +33,7 @@
   "license": "MIT",
   "dependencies": {
     "tree-house": "0.1.5",
-    "ts-node": "^3.0.6"
+    "ts-node": "^3.0.6",
     "@types/dotenv": "^4.0.0",
     "@types/node": "^8.0.1",
     "dotenv-safe": "^4.0.4",

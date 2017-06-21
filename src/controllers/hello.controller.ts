@@ -13,6 +13,6 @@ export default class HelloController extends BaseController {
   }
 
   hello = (req: Request, res: Response) => {
-    this.execute(res, this.helloService.talk(req.body));
+    this.execute(res, this.helloService.talk(req));
   }
 }

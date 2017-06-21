@@ -1,8 +1,9 @@
 import { BaseService } from 'tree-house';
+import { passportAuthentication } from './../index';
 
 export default class HelloService extends BaseService {
-  talk() {
+  async talk(req) {
     console.log('👋 HI!');
-    return Promise.resolve("HI");
+    return await passportAuthentication.authenticate(req);
   }
 };

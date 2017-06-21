@@ -1,15 +1,27 @@
 import dotenv = require('dotenv-safe');
 dotenv.load({ silent: true });
 
-import { TreeHouse } from 'tree-house';
+import { TreeHouse, PassportAuthentication } from 'tree-house';
 import Routes from './config/routes';
+import {
+  localStrategyConfig, jwtStrategyConfig,
+  onLocalStrategy, onJwtStrategy
+} from './config/passport-authentication';
 
 const config = {};
 
-function init():void {
-  const treehouse = new TreeHouse(config);
-  treehouse.setRoutes(Routes);
-  treehouse.fireUpEngines();
-}
+// create new Treehouse instance
+const treehouse = new TreeHouse(config);
 
-init();
+// configure authentication
+const passportAuthentication = new PassportAuthentication();
+passportAuthentication.setLocalStrategy(localStrategyConfig, onLocalStrategy);
+passportAuthentication.setJwtStrategy(jwtStrategyConfig, onJwtStrategy);
+
+// configure the routes
+treehouse.setRoutes(Routes);
+
+// let's go
+treehouse.fireUpEngines();
+
+export { passportAuthentication };
