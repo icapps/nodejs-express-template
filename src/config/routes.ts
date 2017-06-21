@@ -1,5 +1,5 @@
 import { Route } from 'tree-house';
-import HelloController from './../controllers/hello.controller';
+import { HelloController } from './../controllers/hello.controller';
 
 const helloController = new HelloController();
 

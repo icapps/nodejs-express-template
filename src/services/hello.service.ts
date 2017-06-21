@@ -1,8 +1,8 @@
 import { BaseService } from 'tree-house';
 
-export default class HelloService extends BaseService {
+export class HelloService extends BaseService {
   talk() {
     console.log('👋 HI!');
-    return Promise.resolve("HI");
+    return Promise.resolve('HI');
   }
-};
+}

@@ -1,11 +1,10 @@
 import { BaseController } from 'tree-house';
-import { Response, Request } from "express";
-import HelloService from './../services/hello.service';
+import { Response, Request } from 'express';
+import { HelloService } from './../services/hello.service';
 
-
-export default class HelloController extends BaseController {
-  helloService: any
-  execute: any
+export class HelloController extends BaseController {
+  helloService: any;
+  execute: any;
 
   constructor(...args) {
     super(args);
