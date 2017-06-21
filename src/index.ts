@@ -1,5 +1,5 @@
-import dotenv = require('dotenv-safe');
-dotenv.load({ silent: true });
+import dotenvSafe = require('dotenv-safe');
+dotenvSafe.load({ silent: true });
 
 import { TreeHouse, PassportAuthentication } from 'tree-house';
 import Routes from './config/routes';
@@ -12,6 +12,9 @@ const config = {};
 
 // create new Treehouse instance
 const treehouse = new TreeHouse(config);
+  treehouse.setRoutes(routes);
+  treehouse.fireUpEngines();
+}
 
 // configure authentication
 const passportAuthentication = new PassportAuthentication();

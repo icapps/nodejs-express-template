@@ -6,4 +6,4 @@ export default class HelloService extends BaseService {
     console.log('👋 HI!');
     return await passportAuthentication.authenticate(req);
   }
-};
+}
