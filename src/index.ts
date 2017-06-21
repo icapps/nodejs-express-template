@@ -1,14 +1,14 @@
-import dotenv = require('dotenv-safe');
-dotenv.load({ silent: true });
+import dotenvSafe = require('dotenv-safe');
+dotenvSafe.load({ silent: true });
 
 import { TreeHouse } from 'tree-house';
-import Routes from './config/routes';
+import routes from './config/routes';
 
 const config = {};
 
 function init():void {
   const treehouse = new TreeHouse(config);
-  treehouse.setRoutes(Routes);
+  treehouse.setRoutes(routes);
   treehouse.fireUpEngines();
 }
 

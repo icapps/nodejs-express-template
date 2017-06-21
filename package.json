@@ -6,7 +6,8 @@
     "start": "node ./build/index.js",
     "build": "yarn cleanup && tsc",
     "cleanup": "rm -rf ./build",
-    "serve": "nodemon --exec ./node_modules/.bin/ts-node -- ./src/index.ts"
+    "serve": "nodemon --exec ./node_modules/.bin/ts-node -- ./src/index.ts",
+    "lint": "tslint 'src/**/*.ts'"
   },
   "repository": {
     "url": "git@github.com:icapps/nodejs-express-template.git",
@@ -33,13 +34,15 @@
   "license": "MIT",
   "dependencies": {
     "tree-house": "0.1.5",
-    "ts-node": "^3.0.6"
+    "ts-node": "^3.0.6",
     "@types/dotenv": "^4.0.0",
     "@types/node": "^8.0.1",
     "dotenv-safe": "^4.0.4",
     "tree-house": "0.1.5"
   },
   "devDependencies": {
+    "tslint": "^5.4.3",
+    "tslint-config-airbnb": "^5.2.0",
     "typescript": "^2.3.4"
   }
 }
