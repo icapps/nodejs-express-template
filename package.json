@@ -1,5 +1,6 @@
 {
-  "name": "nodejs-express-template",
+  "name": "_OLLIE_NAME_",
+  "description": "_OLLIE_DESCRIPTION_",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
