@@ -1,0 +1,10 @@
+postgres:
+  image: sameersbn/postgresql
+  ports:
+  - "5432:5432"
+  environment:
+    - DB_USER=developer
+    - DB_PASS=developer
+    - DB_NAME=db_test,db_dev
+  volumes:
+    - ./data/postgres:/var/lib/postgresql/data
