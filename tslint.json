@@ -4,6 +4,8 @@
         "tslint-config-airbnb"
     ],
     "jsRules": {},
-    "rules": {},
+    "rules": {
+      "align": [true, "statements", "elements", "members", "parameters"]
+    },
     "rulesDirectory": []
 }

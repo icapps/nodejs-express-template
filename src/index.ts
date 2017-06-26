@@ -2,26 +2,35 @@ import dotenvSafe = require('dotenv-safe');
 dotenvSafe.load({ silent: true });
 
 import { TreeHouse, PassportAuthentication } from 'tree-house';
-import ROUTES from './config/routes';
+import routes from './config/routes';
 import {
   localStrategyConfig, jwtStrategyConfig,
-  onLocalStrategy, onJwtStrategy
+  onLocalStrategy, onJwtStrategy,
 } from './config/passport-authentication';
+import models from './models';
+import Example from './models/Example';
 
 const config = {};
-
-// create new Treehouse instance
-const treehouse = new TreeHouse(config);
 
 // configure authentication
 const passportAuthentication = new PassportAuthentication();
 passportAuthentication.setLocalStrategy(localStrategyConfig, onLocalStrategy);
 passportAuthentication.setJwtStrategy(jwtStrategyConfig, onJwtStrategy);
 
-// configure the routes
-treehouse.setRoutes(ROUTES);
+async function init():Promise<void> {
+  const treehouse = new TreeHouse(config);
+  await models.sync({ force: true });
+  await Example.create<Example>({ name: 'test' });
+  treehouse.setRoutes(routes);
+  treehouse.fireUpEngines();
+  return Promise.resolve();
+}
 
-// let's go
-treehouse.fireUpEngines();
+process.on('unhandledRejection', (reason, p) => {
+  console.info('Unhandled Rejection', reason, p);
+  throw reason;
+});
+
+init();
 
 export { passportAuthentication };
