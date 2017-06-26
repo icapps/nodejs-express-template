@@ -40,7 +40,7 @@ jspm_packages/
 typings/
 
 # Optional npm cache directory
-.np
+.npm
 
 # Optional yarn cache
 .yarn-cache.tgz

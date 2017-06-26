@@ -14,6 +14,7 @@ RUN set -ex && \
 ADD package.json yarn.lock /tmp/
 # Copy cache contents (if any) from local machine
 ADD .yarn-cache.tgz /
+# Install yarn dependencies
 RUN cd /tmp && \
     yarn
 
