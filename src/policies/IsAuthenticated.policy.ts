@@ -2,8 +2,9 @@ import { BasePolicy } from 'tree-house';
 import { passportAuthentication } from './../index';
 
 export default class IsAuthenticatedPolicy extends BasePolicy {
-  req: any
-  Unauthorised: any
+  req: any;
+  Unauthorised: any;
+
   async setPolicy() {
     try {
       const user = await passportAuthentication.authenticate(this.req, 'jwt');

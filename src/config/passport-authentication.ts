@@ -5,6 +5,7 @@ export const localStrategyConfig = {
   passwordField: 'password',
 };
 
+// TODO: put secret in ENV VARIABLE
 export const jwtStrategyConfig = {
   secret: '8^dxE|gZu1ODB183s772)/3:l_#fdsfsdf|2ux3&lhN@LQ6g+"i$zq45fsdq1',
   algorithm: 'HS256',
@@ -24,6 +25,7 @@ export function onLocalStrategy(email: string, password: string) {
   });
 }
 
+// TODO: use struct or interface
 export function onJwtStrategy(payload) {
   return new Promise((resolve, reject) => {
     if (payload.user) {

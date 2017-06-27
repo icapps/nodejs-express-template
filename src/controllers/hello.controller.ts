@@ -1,8 +1,8 @@
 import { BaseController } from 'tree-house';
 import { Response, Request } from 'express';
-import HelloService from './../services/hello.service';
+import HelloService from './../services/Hello.service';
 
-export class HelloController extends BaseController {
+export default class HelloController extends BaseController {
   helloService: any;
   execute: any;
 
