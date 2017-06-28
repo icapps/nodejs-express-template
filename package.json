@@ -34,19 +34,20 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "tree-house": "0.1.5",
-    "ts-node": "^3.0.6",
     "dotenv-safe": "^4.0.4",
     "pg": "^6.4.0",
     "reflect-metadata": "^0.1.10",
     "sequelize": "^4.2.0",
     "sequelize-cli": "^2.7.0",
-    "sequelize-typescript": "^0.3.5"
+    "sequelize-typescript": "^0.3.5",
+    "tree-house": "0.1.5",
+    "ts-node": "^3.0.6"
   },
   "devDependencies": {
     "@types/dotenv": "^4.0.0",
     "@types/node": "^8.0.1",
     "@types/sequelize": "^3.4.52",
+    "nodemon": "^1.11.0",
     "ts-node": "^3.0.6",
     "tslint": "^5.4.3",
     "tslint-config-airbnb": "^5.2.0",
