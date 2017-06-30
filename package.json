@@ -37,6 +37,7 @@
     "tree-house": "0.1.5",
     "ts-node": "^3.0.6",
     "dotenv-safe": "^4.0.4",
+    "jest": "^20.0.4",
     "pg": "^6.4.0",
     "reflect-metadata": "^0.1.10",
     "sequelize": "^4.2.0",
@@ -45,6 +46,7 @@
   },
   "devDependencies": {
     "@types/dotenv": "^4.0.0",
+    "@types/jest": "^20.0.2",
     "@types/node": "^8.0.1",
     "@types/sequelize": "^3.4.52",
     "ts-node": "^3.0.6",
