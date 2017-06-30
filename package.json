@@ -34,14 +34,17 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "tree-house": "0.1.5",
-    "ts-node": "^3.0.6",
+    "basic-auth": "^1.1.0",
+    "cors": "^2.8.3",
     "dotenv-safe": "^4.0.4",
+    "express": "^4.15.3",
     "pg": "^6.4.0",
     "reflect-metadata": "^0.1.10",
     "sequelize": "^4.2.0",
     "sequelize-cli": "^2.7.0",
-    "sequelize-typescript": "^0.3.5"
+    "sequelize-typescript": "^0.3.5",
+    "tree-house": "0.1.5",
+    "ts-node": "^3.0.6"
   },
   "devDependencies": {
     "@types/dotenv": "^4.0.0",

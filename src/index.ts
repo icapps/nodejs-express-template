@@ -1,7 +1,10 @@
 import dotenvSafe = require('dotenv-safe');
-dotenvSafe.load({ silent: true });
+import * as express from 'express';
+import * as cors from 'cors';
 
+dotenvSafe.load({ silent: true });
 import { TreeHouse, PassportAuthentication } from 'tree-house';
+
 import routes from './config/routes';
 import {
   localStrategyConfig, jwtStrategyConfig,
@@ -9,7 +12,6 @@ import {
 } from './config/passport-authentication';
 import models from './models';
 import Example from './models/Example';
-
 const config = {};
 
 // configure authentication
@@ -23,6 +25,8 @@ async function init():Promise<void> {
   await Example.create<Example>({ name: 'test' });
   treehouse.setRoutes(routes);
   treehouse.fireUpEngines();
+  treehouse.app.use('/swagger',[cors(), express.static('swagger')]);
+
   return Promise.resolve();
 }
 
