@@ -59,8 +59,8 @@ typings/
 
 build/
 data/
-# OS generated files #
-# #########V#############
+
+# OS generated files
 .DS_Store
 .DS_Store?
 .Spotlight-V100
