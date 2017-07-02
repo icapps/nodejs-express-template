@@ -51,6 +51,7 @@
   "dependencies": {
     "dotenv-safe": "^4.0.4",
     "jest": "^20.0.4",
+    "moment": "^2.18.1",
     "pg": "^6.4.0",
     "raven": "^2.1.0",
     "reflect-metadata": "^0.1.10",
