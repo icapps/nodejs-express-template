@@ -1,10 +1,13 @@
 import { Sequelize } from 'sequelize-typescript';
 import { databaseConfig } from '../config/database.config';
-import Example from './Example';
+import bookModel from './book.model';
+import authorModel from './author.model';
 
-const sequelize = new Sequelize(databaseConfig);
+export const sequelize = new Sequelize(databaseConfig);
 sequelize.addModels([
-  Example,
+  bookModel,
+  authorModel,
 ]);
 
-export default sequelize;
+export const Book:any = sequelize.models.Book;
+export const Author:any = sequelize.models.Author;

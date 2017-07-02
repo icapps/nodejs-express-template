@@ -5,7 +5,7 @@
   "main": "index.js",
   "jest": {
     "coverageThreshold": {
-        "global": {
+      "global": {
         "branches": 50,
         "functions": 50,
         "lines": 50,
@@ -19,7 +19,11 @@
     "cleanup": "rm -rf ./build",
     "serve": "nodemon --exec ./node_modules/.bin/ts-node -- ./src/index.ts",
     "lint": "tslint 'src/**/*.ts'",
-    "test": "yarn build && yarn jest -- --coverage"
+    "test": "yarn build && yarn jest -- --coverage",
+    "db:migrate": "sequelize db:migrate",
+    "db:migrate:undo": "sequelize db:migrate:undo:all",
+    "db:seed": "sequelize db:seed:all",
+    "db:reset": "yarn db:migrate:undo && yarn db:migrate && yarn db:migrate && yarn db:seed"
   },
   "repository": {
     "url": "git@github.com:icapps/nodejs-express-template.git",
@@ -45,15 +49,16 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "tree-house": "0.1.5",
-    "ts-node": "^3.0.6",
     "dotenv-safe": "^4.0.4",
     "jest": "^20.0.4",
     "pg": "^6.4.0",
     "reflect-metadata": "^0.1.10",
     "sequelize": "^4.2.0",
     "sequelize-cli": "^2.7.0",
-    "sequelize-typescript": "^0.3.5"
+    "sequelize-typescript": "^0.3.5",
+    "tree-house": "0.1.5",
+    "ts-node": "^3.0.6",
+    "uuid": "^3.1.0"
   },
   "devDependencies": {
     "@types/dotenv": "^4.0.0",
