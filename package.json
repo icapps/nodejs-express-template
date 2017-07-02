@@ -11,7 +11,16 @@
         "lines": 50,
         "statements": 50
       }
-    }
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "/__tests__/.*\\.(ts|tsx|js)$"
   },
   "scripts": {
     "start": "node ./build/index.js",
@@ -19,7 +28,8 @@
     "cleanup": "rm -rf ./build",
     "serve": "nodemon --exec ./node_modules/.bin/ts-node -- ./src/index.ts",
     "lint": "tslint 'src/**/*.ts'",
-    "test": "yarn build && yarn jest -- --coverage",
+    "test": "jest __tests__/* -- --coverage",
+    "test:watch": "jest --watchAll",
     "db:migrate": "sequelize db:migrate",
     "db:migrate:undo": "sequelize db:migrate:undo:all",
     "db:seed": "sequelize db:seed:all",
@@ -59,6 +69,7 @@
     "sequelize-cli": "^2.7.0",
     "sequelize-typescript": "^0.3.5",
     "tree-house": "0.1.5",
+    "ts-jest": "^20.0.6",
     "ts-node": "^3.0.6",
     "uuid": "^3.1.0"
   },
