@@ -4,18 +4,20 @@
   "version": "1.0.0",
   "main": "index.js",
   "jest": {
+    "notify": true,
     "coverageThreshold": {
       "global": {
-        "branches": 50,
-        "functions": 50,
-        "lines": 50,
-        "statements": 50
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
       }
     },
     "moduleFileExtensions": [
       "ts",
       "tsx",
-      "js"
+      "js",
+      "json"
     ],
     "transform": {
       "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
@@ -24,16 +26,14 @@
   },
   "scripts": {
     "start": "node ./build/index.js",
-    "test": "jest __tests__/* --coverage",
     "build": "yarn cleanup && tsc",
     "cleanup": "rm -rf ./build",
     "serve": "nodemon --exec ./node_modules/.bin/ts-node -- ./src/index.ts",
     "lint": "tslint 'src/**/*.ts'",
+    "test": "jest --coverage --forceExit",
     "test:watch": "jest --watchAll",
     "db:migrate": "sequelize db:migrate",
-    "db:migrate:undo": "sequelize db:migrate:undo:all",
-    "db:seed": "sequelize db:seed:all",
-    "db:reset": "yarn db:migrate:undo && yarn db:migrate && yarn db:migrate && yarn db:seed"
+    "db:seed": "sequelize db:seed:all"
   },
   "repository": {
     "url": "git@github.com:icapps/nodejs-express-template.git",
@@ -60,6 +60,8 @@
   "license": "MIT",
   "dependencies": {
     "dotenv-safe": "^4.0.4",
+    "inversify": "^4.2.0",
+    "inversify-express-utils": "^3.5.2",
     "jest": "^20.0.4",
     "moment": "^2.18.1",
     "pg": "^6.4.0",

@@ -30,4 +30,3 @@ export default class Book extends Model<Book> {
   @BelongsTo(() => Author)
   author: Author;
 }
-

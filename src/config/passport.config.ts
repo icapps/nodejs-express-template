@@ -1,12 +1,11 @@
-import { passportAuthentication } from '../index';
+import { PassportAuthentication } from 'tree-house';
 
-export const localStrategyConfig = {
+const localStrategyConfig = {
   usernameField: 'email',
   passwordField: 'password',
 };
 
-// TODO: put secret in ENV VARIABLE
-export const jwtStrategyConfig = {
+const jwtStrategyConfig = {
   secret: '8^dxE|gZu1ODB183s772)/3:l_#fdsfsdf|2ux3&lhN@LQ6g+"i$zq45fsdq1',
   algorithm: 'HS256',
   expiresIn: 24 * 60 * 60,
@@ -15,7 +14,7 @@ export const jwtStrategyConfig = {
   authScheme: 'X-Session-Id',
 };
 
-export function onLocalStrategy(email: string, password: string) {
+function onLocalStrategy(email: string, password: string) {
   return new Promise((resolve, reject) => {
     if (email && (password === 'notSoRandom')) {
       const token = passportAuthentication.getJwtToken({ email, password });
@@ -26,7 +25,7 @@ export function onLocalStrategy(email: string, password: string) {
 }
 
 // TODO: use struct or interface
-export function onJwtStrategy(payload) {
+function onJwtStrategy(payload) {
   return new Promise((resolve, reject) => {
     if (payload.user) {
       return resolve({ name: 'John Doe' });
@@ -34,3 +33,10 @@ export function onJwtStrategy(payload) {
     return reject('Local strategy: not authorised');
   });
 }
+
+// configure authentication
+const passportAuthentication = new PassportAuthentication();
+passportAuthentication.setLocalStrategy(localStrategyConfig, onLocalStrategy);
+passportAuthentication.setJwtStrategy(jwtStrategyConfig, onJwtStrategy);
+
+export { passportAuthentication };

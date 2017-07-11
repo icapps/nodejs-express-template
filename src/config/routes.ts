@@ -1,14 +1,14 @@
 import { Route } from 'tree-house';
-import HelloController from './../controllers/Hello.controller';
-import AuthenticationController from './../controllers/Authentication.controller';
-import IsAuthenticatedPolicy from './../policies/IsAuthenticated.policy';
+import { BooksController } from './../controllers/books.controller';
+import { AuthenticationController } from './../controllers/authentication.controller';
+import IsAuthenticatedPolicy from './../policies/is-authenticated.policy';
 
 // controllers
-const helloController = new HelloController();
+const booksController = new BooksController();
 const authenticationController = new AuthenticationController();
 
 export default [
   new Route('POST', '/login', authenticationController.login),
-  new Route('GET', '/hello', helloController.hello, [IsAuthenticatedPolicy]),
+  new Route('GET', '/books', booksController.getAll, [IsAuthenticatedPolicy]),
 ];
 
