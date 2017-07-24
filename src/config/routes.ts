@@ -1,7 +1,7 @@
 import { Route } from 'tree-house';
-import { HelloController } from './../controllers/hello.controller';
-import AuthenticationController from './../controllers/authentication.controller';
-import IsAuthenticatedPolicy from './../policies/is-authenticated.policy';
+import HelloController from './../controllers/Hello.controller';
+import AuthenticationController from './../controllers/Authentication.controller';
+import IsAuthenticatedPolicy from './../policies/IsAuthenticated.policy';
 
 // controllers
 const helloController = new HelloController();
