@@ -52,6 +52,7 @@
     "dotenv-safe": "^4.0.4",
     "jest": "^20.0.4",
     "pg": "^6.4.0",
+    "raven": "^2.1.0",
     "reflect-metadata": "^0.1.10",
     "sequelize": "^4.2.0",
     "sequelize-cli": "^2.7.0",

@@ -2,7 +2,6 @@ import { BaseController } from 'tree-house';
 import { Response, Request } from 'express';
 import AuthenticationService from './../services/authentication.service';
 
-
 export default class AuthenticationController extends BaseController {
   authenticationService: any;
   execute: any;
