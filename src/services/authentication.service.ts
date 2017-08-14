@@ -2,7 +2,7 @@ import { BaseService } from 'tree-house';
 import { passportAuthentication } from './../index';
 
 export default class AuthenticationService extends BaseService {
-  Unauthorised: any
+  Unauthorised: any;
 
   async login(req) {
     try {
@@ -13,4 +13,4 @@ export default class AuthenticationService extends BaseService {
       throw new this.Unauthorised('message', 'code');
     }
   }
-};
+}

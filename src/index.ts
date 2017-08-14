@@ -9,8 +9,6 @@ import {
   localStrategyConfig, jwtStrategyConfig,
   onLocalStrategy, onJwtStrategy,
 } from './config/passport-authentication';
-import models from './models';
-import Example from './models/Example';
 
 const config = {};
 
@@ -27,8 +25,6 @@ passportAuthentication.setJwtStrategy(jwtStrategyConfig, onJwtStrategy);
 
 async function init():Promise<void> {
   const treehouse = new TreeHouse(config);
-  await models.sync({ force: true });
-  await Example.create<Example>({ name: 'test' });
   treehouse.setRoutes(routes);
   treehouse.fireUpEngines();
   return Promise.resolve();

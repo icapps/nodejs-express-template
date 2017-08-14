@@ -6,7 +6,7 @@
     "jsRules": {},
     "rules": {
       "align": [true, "statements", "elements", "members", "parameters"],
-      "import-name": false,
+      "import-name": false
     },
     "rulesDirectory": [
     ]

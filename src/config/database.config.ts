@@ -1,33 +1,7 @@
 import { ISequelizeConfig } from 'sequelize-typescript';
-const environment: string = process.env.NODE_ENV;
+import * as dbConf from '../../database.json';
 
-const dbConf = {
-  development: {
-    username: 'developer',
-    password: 'developer',
-    name: 'db_dev',
-    host: '0.0.0.0',
-    dialect: 'postgres',
-    logging: false,
-  },
-  test: {
-    username: 'developer',
-    password: 'developer',
-    name: 'db_test',
-    host: 'dockerhost',
-    dialect: 'postgres',
-    logging: false,
-  },
-  production: {
-    username: '',
-    password: '',
-    name: '',
-    host: '',
-    logging: false,
-    use_env_variable: 'name_URL',
-    dialect: 'postgres',
-  },
-};
+const environment: string = process.env.NODE_ENV;
 
 export interface databaseConfig extends ISequelizeConfig {
   username: string;
@@ -39,4 +13,12 @@ export interface databaseConfig extends ISequelizeConfig {
   use_env_variable?: string;
 }
 
-export const databaseConfig: databaseConfig = dbConf[environment];
+export const databaseConfig: databaseConfig = {
+  username: dbConf[environment].username,
+  password: dbConf[environment].password,
+  name: dbConf[environment].database,
+  host: dbConf[environment].host,
+  dialect: dbConf[environment].dialect,
+  logging: dbConf[environment].logging,
+  use_env_variable: dbConf[environment].use_env_variable,
+};
