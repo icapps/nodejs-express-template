@@ -4,7 +4,6 @@ import { Book, Author } from '../models';
 export default class HelloService extends BaseService {
   async talk(user) {
     try {
-      console.log('👋 HI!');
       const books = await Book.findAll({
         include: [
           {
