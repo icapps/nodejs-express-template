@@ -40,6 +40,8 @@ describe('models/Author', () => {
 
   describe('It has', () => {
     it('has many Books', () => {
+      expect(author.createBook).toBeInstanceOf(Function);
+      expect(author.addBook).toBeInstanceOf(Function);
       expect(author.setBooks).toBeInstanceOf(Function);
       expect(author.getBooks).toBeInstanceOf(Function);
     });

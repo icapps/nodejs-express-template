@@ -9,5 +9,6 @@ sequelize.addModels([
   authorModel,
 ]);
 
+// TODO: define Book and Author interface
 export const Book:any = sequelize.models.Book;
 export const Author:any = sequelize.models.Author;

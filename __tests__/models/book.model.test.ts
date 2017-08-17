@@ -40,6 +40,7 @@ describe('models/Book', () => {
 
   describe('Associations', () => {
     it('belongs to Author', () => {
+      expect(book.createAuthor).toBeInstanceOf(Function);
       expect(book.getAuthor).toBeInstanceOf(Function);
       expect(book.setAuthor).toBeInstanceOf(Function);
     });

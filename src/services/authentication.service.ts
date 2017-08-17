@@ -1,12 +1,18 @@
 import { BaseService } from 'tree-house';
-import { passportAuthentication } from './../index';
+import { passportAuthentication } from './../config/passport.config';
 
-export default class AuthenticationService extends BaseService {
+export class AuthenticationService extends BaseService {
   Unauthorised: any;
+  private authenticate: any;
 
-  async login(req) {
+  constructor({ authenticate = passportAuthentication.authenticate } = {}) {
+    super();
+    this.authenticate = authenticate;
+  }
+
+  async login(credentials) {
     try {
-      const user = await passportAuthentication.authenticate(req);
+      const user = await this.authenticate(credentials);
       return user;
     } catch (e) {
       /* handle error */
