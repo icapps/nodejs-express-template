@@ -3,13 +3,11 @@ import raven from 'raven';
 
 dotenvSafe.load({ silent: true });
 
-import { TreeHouse, PassportAuthentication } from 'tree-house';
+import { InversifyExpressServer } from 'inversify-express-utils';
+import { TreeHouse } from 'tree-house';
 import routes from './config/routes';
-import {
-  localStrategyConfig, jwtStrategyConfig,
-  onLocalStrategy, onJwtStrategy,
-} from './config/passport-authentication';
 
+import './config/inversify/loader';
 const config = {};
 
 // TODO: add typescript definitions
@@ -17,11 +15,6 @@ const config = {};
 if (process.env.SENTRY_DSN !== 'false') {
   raven.config(process.env.SENTRY_DSN).install();
 }
-
-// configure authentication
-const passportAuthentication = new PassportAuthentication();
-passportAuthentication.setLocalStrategy(localStrategyConfig, onLocalStrategy);
-passportAuthentication.setJwtStrategy(jwtStrategyConfig, onJwtStrategy);
 
 async function init():Promise<void> {
   const treehouse = new TreeHouse(config);
@@ -35,5 +28,3 @@ process.on('unhandledRejection', (reason, p) => {
 });
 
 init();
-
-export { passportAuthentication };

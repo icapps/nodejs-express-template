@@ -1,17 +1,27 @@
 import { BaseController } from 'tree-house';
 import { Response, Request } from 'express';
-import AuthenticationService from './../services/authentication.service';
+import { AuthenticationService } from './../services/authentication.service';
 
-export default class AuthenticationController extends BaseController {
-  authenticationService: any;
-  execute: any;
+interface Credentials {
+  email: string;
+  password: string;
+}
 
-  constructor(...args) {
-    super(args);
-    this.authenticationService = new AuthenticationService();
+export class AuthenticationController extends BaseController {
+  private authenticationService: AuthenticationService;
+  private execute: any;
+
+  constructor({ authenticationService = new AuthenticationService() } = {}) {
+    super();
+    this.authenticationService = authenticationService;
   }
 
   login = (req: Request, res: Response) => {
-    this.execute(res, this.authenticationService.login(req));
+    const credentials: Credentials = {
+      email: req.email,
+      password: req.password,
+    };
+
+    return this.execute(res, this.authenticationService.login(credentials));
   }
 }
