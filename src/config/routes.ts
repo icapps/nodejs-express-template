@@ -1,7 +1,7 @@
 import { Route } from 'tree-house';
 import { BooksController } from './../controllers/books.controller';
 import { AuthenticationController } from './../controllers/authentication.controller';
-import IsAuthenticatedPolicy from './../policies/is-authenticated.policy';
+import IsAuthenticatedPolicy from './../policies/isAuthenticated.policy';
 
 // controllers
 const booksController = new BooksController();
