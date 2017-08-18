@@ -1,13 +1,11 @@
-import dotenvSafe from 'dotenv-safe';
-import raven from 'raven';
+import * as dotenvSafe from 'dotenv-safe';
+import * as raven from 'raven';
 
 dotenvSafe.load({ silent: true });
 
-import { InversifyExpressServer } from 'inversify-express-utils';
 import { TreeHouse } from 'tree-house';
 import routes from './config/routes';
 
-import './config/inversify/loader';
 const config = {};
 
 // TODO: add typescript definitions
@@ -16,15 +14,13 @@ if (process.env.SENTRY_DSN !== 'false') {
   raven.config(process.env.SENTRY_DSN).install();
 }
 
-async function init():Promise<void> {
-  const treehouse = new TreeHouse(config);
-  treehouse.setRoutes(routes);
-  treehouse.fireUpEngines();
-  return Promise.resolve();
-}
+const treehouse = new TreeHouse(config);
+treehouse.setRoutes(routes);
+treehouse.fireUpEngines();
+
 process.on('unhandledRejection', (reason, p) => {
   console.info('Unhandled Rejection', reason, p);
   throw reason;
 });
 
-init();
+export default treehouse.app;

@@ -18,8 +18,8 @@ export class AuthenticationController extends BaseController {
 
   login = (req: Request, res: Response) => {
     const credentials: Credentials = {
-      email: req.email,
-      password: req.password,
+      email: req.body.email,
+      password: req.body.password,
     };
 
     return this.execute(res, this.authenticationService.login(credentials));

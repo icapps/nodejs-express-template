@@ -1,4 +1,4 @@
-import { PassportAuthentication } from 'tree-house';
+import { PassportAuthentication } from 'tree-house-authentication';
 
 const localStrategyConfig = {
   usernameField: 'email',

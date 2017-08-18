@@ -1,5 +1,5 @@
 import { BasePolicy } from 'tree-house';
-import { passportAuthentication } from './../index';
+import { passportAuthentication } from './../config/passport.config';
 
 export default class IsAuthenticatedPolicy extends BasePolicy {
   req: any;

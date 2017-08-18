@@ -12,6 +12,7 @@ export class BooksController extends BaseController {
   }
 
   getAll = (req: Request, res: Response) => {
+    console.log(req.body);
     return this.execute(res, this.booksService.getAllBooks());
   }
 }
