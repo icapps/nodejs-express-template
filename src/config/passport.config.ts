@@ -16,6 +16,7 @@ const jwtStrategyConfig = {
 
 function onLocalStrategy(email: string, password: string) {
   return new Promise((resolve, reject) => {
+    // TODO: Proper user implementation
     if (email && (password === 'notSoRandom')) {
       const token = passportAuthentication.getJwtToken({ email, password });
       return resolve({ token });
