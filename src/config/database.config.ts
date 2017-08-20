@@ -6,7 +6,7 @@ const dbConf = {
     username: 'developer',
     password: 'developer',
     name: 'db_dev',
-    host: 'dockerhost',
+    host: '0.0.0.0',
     dialect: 'postgres',
     logging: false,
   },
