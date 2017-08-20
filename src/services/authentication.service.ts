@@ -10,9 +10,9 @@ export class AuthenticationService extends BaseService {
     this.authenticate = authenticate;
   }
 
-  async login(credentials) {
+  async login(req) {
     try {
-      const user = await this.authenticate(credentials);
+      const user = await this.authenticate(req);
       return user;
     } catch (e) {
       /* handle error */

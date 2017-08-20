@@ -70,7 +70,7 @@
     "sequelize-cli": "^2.7.0",
     "sequelize-typescript": "^0.3.5",
     "tree-house": "^1.0.0",
-    "tree-house-authentication": "^1.0.7",
+    "tree-house-authentication": "^1.1.0",
     "ts-jest": "^20.0.6",
     "ts-node": "^3.0.6",
     "uuid": "^3.1.0"
